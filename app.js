@@ -53,6 +53,6 @@ app.get("/getTastings", (req, res) => {
   connection.end();
 });
 
-app.listen("3006", () => {
+app.listen(process.env.PORT || "3006", () => {
   console.log("Server started on port 3006");
 });
