@@ -6,10 +6,10 @@ let connection = null;
 
 function connectToDB() {
   var connection = mysql.createConnection({
-    host: "185.28.21.52",
-    user: "u456860955_Jesse72521",
-    password: "Kramer1!",
-    database: "u456860955_blindDB",
+    host: "us-cdbr-east-06.cleardb.net",
+    user: "b23a7477886fbe",
+    password: "d1e7a9f3",
+    database: "heroku_5d0f9c82887f519",
   });
   return connection;
 }
@@ -35,21 +35,22 @@ app.post("/saveTastings", (req, res) => {
 app.get("/getTastings", (req, res) => {
   console.log("getTastings");
   connection = connectToDB();
-  // connection.query(
-  //   `SELECT * FROM tastings WHERE unique_code = '${req.query.uniqueCode}'`,
-  //   function (err, rows, fields) {
-  //     if (err) throw err;
-  //     if (rows.length > 0) {
-  //       res.json({ status: 200, error: null, response: rows[0] });
-  //     } else {
-  //       res.json({
-  //         status: 404,
-  //         error: "No tasting found",
-  //         response: "No tasting found",
-  //       });
-  //     }
-  //   }
-  // );
+  connection.query(
+    // `SELECT * FROM tastings WHERE unique_code = '${req.query.uniqueCode}'`,
+    `SELECT * FROM tastings'`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      if (rows.length > 0) {
+        res.json({ status: 200, error: null, response: rows[0] });
+      } else {
+        res.json({
+          status: 404,
+          error: "No tasting found",
+          response: "No tasting found",
+        });
+      }
+    }
+  );
   connection.end();
 });
 
