@@ -37,7 +37,7 @@ app.get("/getTastings", (req, res) => {
   connection = connectToDB();
   connection.query(
     // `SELECT * FROM tastings WHERE unique_code = '${req.query.uniqueCode}'`,
-    `SELECT * FROM tastings'`,
+    `SELECT * FROM tastings`,
     function (err, rows, fields) {
       if (err) throw err;
       if (rows.length > 0) {
