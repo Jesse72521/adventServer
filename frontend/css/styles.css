@@ -1,0 +1,49 @@
+#mainSubmit {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 10%;
+}
+
+#mainBody {
+  margin: 5%;
+  margin-top: 30px;
+}
+
+#headerText {
+  margin-bottom: 30px;
+}
+
+/* identify.html */
+#showResults {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 10%;
+}
+
+#card-area {
+  margin-top: 10%;
+}
+
+#tasting-area.hidden {
+  display: none;
+}
+
+#code-input.hidden {
+  display: none;
+}
+
+#results-area.hidden {
+  display: none;
+}
+
+#winning-div {
+  padding: 0 0.75rem;
+}
+
+#login-buttons {
+  text-align: center;
+}
+
+.brand-logo {
+  margin-left: 10px;
+}

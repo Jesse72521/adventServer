@@ -1,0 +1,12 @@
+{
+  "name": "blindapp",
+  "version": "1.0.0",
+  "description": "App to check out blind results",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
