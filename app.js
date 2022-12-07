@@ -20,9 +20,33 @@ app.use(express.json());
 app.use(express.static("./frontend"));
 
 app.post("/saveTastings", (req, res) => {
-  console.log("saveTastings");
   connection = connectToDB();
   let body = req.body;
+  console.log("test");
+  console.log(body);
+
+  // DELETE from tastings WHERE name=${body.selected}
+  connection.query(
+    `DELETE from tastings WHERE tastings.name='${body.selected}'`
+  );
+
+  var sql = `INSERT into tastings (name, day, notes, guesses, rating) VALUES ?`;
+  var values = [];
+  for (var i = 1; i < 13; i++) {
+    value = [
+      body.selected,
+      body.days[i].day,
+      body.days[i].note,
+      body.days[i].guess,
+      body.days[i].rating,
+    ];
+    values.push(value);
+  }
+  connection.query(sql, [values], function (err, rows, fields) {
+    if (err) throw err;
+    res.json({ status: 200, error: null, response: "success" });
+  });
+
   // connection.query(
   //   `INSERT into tastings (first_label, second_label, first_actual, second_actual, unique_code) VALUES('${body.firstLabel}', '${body.secondLabel}', '${body.firstAnswer}', '${body.secondAnswer}', '${body.uniqueCode}')`,
   //   function (err, rows, fields) {
@@ -30,26 +54,17 @@ app.post("/saveTastings", (req, res) => {
   //     res.json({ status: 200, error: null, response: rows });
   //   }
   // );
+
   connection.end();
 });
 
 app.get("/getAllTastingsByName", (req, res) => {
-  console.log("getTastings");
   connection = connectToDB();
-  console.log(req.query.name);
   connection.query(
     `SELECT * FROM tastings WHERE name = '${req.query.name}'`,
     function (err, rows, fields) {
       if (err) throw err;
-      if (rows.length > 0) {
-        res.json({ status: 200, error: null, response: rows });
-      } else {
-        res.json({
-          status: 404,
-          error: "No tasting found",
-          response: "No tasting found",
-        });
-      }
+      res.json({ status: 200, error: null, response: rows });
     }
   );
   connection.end();
