@@ -52,3 +52,50 @@
 .day-area {
   margin-bottom: 0px;
 }
+
+.info-buttons {
+  display: inline;
+  margin-left: 15px;
+  margin-bottom: 30px;
+}
+
+/* had to do it this way... couldn't beat specificity here */
+#rating1 {
+  width: 75%;
+}
+#rating2 {
+  width: 75%;
+}
+#rating3 {
+  width: 75%;
+}
+#rating4 {
+  width: 75%;
+}
+#rating5 {
+  width: 75%;
+}
+#rating6 {
+  width: 75%;
+}
+#rating7 {
+  width: 75%;
+}
+#rating {
+  width: 75%;
+}
+#rating8 {
+  width: 75%;
+}
+#rating9 {
+  width: 75%;
+}
+#rating10 {
+  width: 75%;
+}
+#rating11 {
+  width: 75%;
+}
+#rating12 {
+  width: 75%;
+}

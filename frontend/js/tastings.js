@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // change this is developing locally
 // this.baseURL = "http://localhost:3006";
 this.baseURL = "https://advent-calendar.herokuapp.com";
+this.selected = null;
 
 document.getElementById("jesseLogin").addEventListener("click", () => {
   clearTastingColumn();
@@ -109,6 +110,7 @@ function renderTastingColumn() {
             <div class="card horizontal">
               <div class="card-stacked">
                 <div class="card-content">
+                  <p>Day ${i}</p>
                   <textarea
                     id="notes${i}"
                     class="materialize-textarea tastingNotes"
@@ -120,17 +122,43 @@ function renderTastingColumn() {
                     class="materialize-textarea tastingGuess"
                     placeholder="Guesses"
                   ></textarea>
-
+                  
                   <textarea
                     id="rating${i}"
                     class="materialize-textarea tastingRating"
                     placeholder="Rating"
                   ></textarea>
+
+                  <!-- Modal Trigger -->
+                    <button data-target="modal1" class="btn modal-trigger info-buttons" id="info-button"><i class="medium material-icons">info_outline</i></button>
+
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                      <div class="modal-content">
+                        <p>Bruichladdich Islay Barley 2011</p>
+                        <p>The Balvenie Carribbean Cask 14 year</p>
+                        <p>Bookers 2021-02</p>
+                        <p>Russell's Reserve Private Barrel Selection</p>
+                        <p>Knob Creek Single Barrel Bourbon</p>
+                        <p>Sam Houston 15</p>
+                        <p>Larceny Barrel Proof B522</p>
+                        <p>Willet Rye</p>
+                        <p>Makers 21-04</p>
+                        <p>Yellowstone</p>
+                        <p>Knob Creek Rye Barrel Select</p>
+                        <p>ECBP A122</p>
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
             `;
   }
+  var elems = document.querySelectorAll(".modal");
+  var instances = M.Modal.init(elems);
 }
 
 function submitTastings(days) {
@@ -152,6 +180,10 @@ function submitTastings(days) {
 }
 
 document.getElementById("saveTastings").addEventListener("click", () => {
+  if (this.selected === null) {
+    return;
+  }
+
   let notes = [];
   let guesses = [];
   let ratings = [];

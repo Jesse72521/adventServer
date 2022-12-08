@@ -47,14 +47,6 @@ app.post("/saveTastings", (req, res) => {
     res.json({ status: 200, error: null, response: "success" });
   });
 
-  // connection.query(
-  //   `INSERT into tastings (first_label, second_label, first_actual, second_actual, unique_code) VALUES('${body.firstLabel}', '${body.secondLabel}', '${body.firstAnswer}', '${body.secondAnswer}', '${body.uniqueCode}')`,
-  //   function (err, rows, fields) {
-  //     if (err) throw err;
-  //     res.json({ status: 200, error: null, response: rows });
-  //   }
-  // );
-
   connection.end();
 });
 
