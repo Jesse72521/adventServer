@@ -110,11 +110,11 @@ function renderTastingColumn() {
             <div class="card horizontal">
               <div class="card-stacked">
                 <div class="card-content">
-                  <p>Day ${i}</p>
+                  <p>Day ${i+12}</p>
                   <textarea
                     id="notes${i}"
                     class="materialize-textarea tastingNotes"
-                    placeholder="Day ${i} Notes"
+                    placeholder="Day ${i+12} Notes"
                   ></textarea>
 
                   <textarea
@@ -135,18 +135,21 @@ function renderTastingColumn() {
                     <!-- Modal Structure -->
                     <div id="modal1" class="modal">
                       <div class="modal-content">
-                        <p>Bruichladdich Islay Barley 2011</p>
-                        <p>The Balvenie Carribbean Cask 14 year</p>
-                        <p>Bookers 2021-02</p>
-                        <p>Russell's Reserve Private Barrel Selection</p>
-                        <p>Knob Creek Single Barrel Bourbon</p>
-                        <p>Sam Houston 15</p>
-                        <p>Larceny Barrel Proof B522</p>
-                        <p>Willet Rye</p>
-                        <p>Makers 21-04</p>
-                        <p>Yellowstone</p>
-                        <p>Knob Creek Rye Barrel Select</p>
-                        <p>ECBP A122</p>
+                        <p>- Malt -</p>
+                        <p>Redbreast Cask Strength</p>
+                        <p>Springbank 12 Cask Strength</p>
+                        <p>Glenglassaugh Cask Strength</p>
+                        <p>Aberlour A'bunadh</p>
+                        <p>- Rye -</p>
+                        <p>High West Campfire</p>
+                        <p>Jack Daniels Special Release Rye</p>
+                        <p>A Midwinter Nights Dram</p>
+                        <p>- Bourbon -</p>
+                        <p>Stagg Jr</p>
+                        <p>Old Forester Barrel Strength</p>
+                        <p>MB Rolland Barrel Proof</p>
+                        <p>Booker's Bourbon</p>
+                        <p>Jack Daniels Barrel Proof Bourbon</p>
                       </div>
                       <div class="modal-footer">
                         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
